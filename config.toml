@@ -1,0 +1,11 @@
+baseurl = "http://kono.sh/"
+languageCode = "en-us"
+title = "Bryan Konowitz"
+theme = "hyde"
+
+[indexes]
+   category = "categories"
+   tag = "tags"
+
+[params]
+  description = "Foo"
