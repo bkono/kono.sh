@@ -1,11 +1,37 @@
-baseurl = "http://kono.sh/"
+baseurl = "https://kono.sh/"
 languageCode = "en-us"
 title = "Bryan Konowitz"
-theme = "hyde"
+theme = "casper"
+paginate = 5
+copyright = "All rights reserved - 2015"
 
 [indexes]
    category = "categories"
    tag = "tags"
 
 [params]
-  description = "Foo"
+  description = "Solved by Code"
+  author = "Bryan Konowitz"
+  authorlocation = "Las Vegas, Nv"
+  authorwebsite = "https://kono.sh"
+  bio = "my bio"
+  githubName = "bkono"
+  hideHUGOSupport = false
+
+[[menu.main]]
+  name = "Blog"
+  weight = -120
+  identifier = "blog"
+  url = "/"
+
+[[menu.main]]
+  name = "Github repos"
+  weight = 100
+  pre = "<h3>Follow me</h3>"
+  url = "https://github.com/bkono"
+
+[[menu.main]]
+  name = "Email"
+  weight = 109
+  pre = "<h3>Contact me</h3>"
+  url = "mail://bryan@kono.sh"

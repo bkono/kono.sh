@@ -3,7 +3,6 @@ Categories = ["development", "docker", "consul"]
 Description = ""
 Tags = ["development", "docker", "consul", "registrator"]
 date = "2015-06-02T21:38:43-07:00"
-menu = "main"
 title = "consul registrator"
 
 +++

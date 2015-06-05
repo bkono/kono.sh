@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Registrator on Bryan Konowitz</title>
+    <link>http://localhost:1313/tags/registrator/</link>
+    <description>Recent content in Registrator on Bryan Konowitz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>All rights reserved - 2015</copyright>
+    <lastBuildDate>Tue, 02 Jun 2015 21:38:43 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/registrator/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>consul registrator</title>
+      <link>http://localhost:1313/post/consul-registrator/</link>
+      <pubDate>Tue, 02 Jun 2015 21:38:43 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/consul-registrator/</guid>
+      <description>
+
+&lt;p&gt;consuls role in local dev
+- service discovery
+    - things like redis/postgres/rabbit all go only internal to the docker containers, accessed via
+        service discovery dns
+- dns
+- tie in to nginx for local routing&lt;/p&gt;
+
+&lt;p&gt;why registrator
+- listens to docker events
+- easy service naming &amp;amp; tagging
+- get fancy-like with automatic scoping (another post around this idea for docker &amp;amp; consul in prod)&lt;/p&gt;
+
+&lt;h3 id=&#34;the-setup:e79b44e3d8ae2a5d599eeaa19b490c26&#34;&gt;The setup&lt;/h3&gt;
+
+&lt;p&gt;docker pull
+&amp;ndash;restart=always
+port mappings &amp;hellip; lots for consul. short why
+registrator, nothing exposed, and why&lt;/p&gt;
+
+&lt;p&gt;ui screen shots&lt;/p&gt;
+
+&lt;p&gt;lead in to boot2docker extra args &amp;hellip; part 3&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
