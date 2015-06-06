@@ -1,13 +1,14 @@
 +++
-Categories = ["development", "docker"]
 Description = ""
-Tags = ["development", "docker", "dnsmasq"]
+tags = ["development", "devops", "docker", "dnsmasq"]
 date = "2015-06-02T21:38:15-07:00"
-title = "prodlike-dev-flow part 1 - dnsmasq"
+title = "A Prodlike dev flow part 1 - dnsmasq "
+author = "moofish32"
 
 +++
 
 ### Why and whats it buy you
+
 dnsmasq is one part of the equation to making our development enviroments behave like a production environment.  Instead of coding in URLs like http://localhost:8080/ we want to provide http://testing.coolwebsite.dev/.  This way if we have websites hosted on subdomains or path extension mounts we can browse and function locally the same as you will with a production environment.  This post solves the DNS problem associated with this flow.  In order to completely get the dev-prod parity additional tools will be necessary, such as load balancers.
 
 ### The Setup
