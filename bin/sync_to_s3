@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+s3cmd sync --acl-public --delete-removed public/ s3://kono.sh/
