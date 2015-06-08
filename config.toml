@@ -1,7 +1,7 @@
 baseurl = "http://kono.sh/"
 languageCode = "en-us"
 title = "Bryan Konowitz"
-theme = "casper"
+theme = "casper_bk"
 paginate = 5
 copyright = "All rights reserved - 2015"
 
@@ -15,15 +15,6 @@ copyright = "All rights reserved - 2015"
   cover = "images/cover-work_stations_espresso-50p.jpg"
   githubName = "bkono"
   hideHUGOSupport = false
-
-[params.authors]
-  [params.authors.bkono]
-    bio = "Bryan started off with a keyboard in his crib, and has kept a passion for technology all his life. When he's not trying to solve everyday problems through technology, he enjoys spending time with his wife and two kids."
-    name = "Bryan Konowitz"
-    location = "Las Vegas, Nv"
-    website = "http://kono.sh"
-  [params.authors.moofish32]
-    name = "Michael Cowgill"
 
 [[menu.main]]
   name = "Blog"
