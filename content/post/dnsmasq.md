@@ -92,7 +92,7 @@ Now we should test something new:
 ```
 ping -c 1 this.will.go.to.my.coolwebsite.dev 
 ```
-Success will loook similar to: 
+Success will look similar to: 
 ```
 PING this.will.go.to.my.coolwebsite.dev (192.168.59.103): 56 data bytes
 64 bytes from 192.168.59.103: icmp_seq=0 ttl=64 time=2.973 ms
