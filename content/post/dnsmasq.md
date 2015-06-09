@@ -11,8 +11,12 @@ author = "moofish32"
 
 dnsmasq is one part of the equation to making our development environments behave like a production
 environment.  Instead of coding in URLs like http://localhost:8080/ we want to provide
-http://testing.coolwebsite.dev/.  This way we can have websites hosted on subdomains or we browse
-and function locally the same as you will with a production environment.  In addition, we are planning to use [Consul](https://www.consul.io) for service discovery which leverages DNS. This post solves the DNS problem associated with this flow.  In order to completely get the [dev-prod](http://12factor.net/dev-prod-parity) parity additional tools will be necessary, such as load balancers or reverse proxies (think nginx and a follow up post to elaborate).
+http://testing.coolwebsite.dev/.  This way we can have websites hosted on subdomains where we browse
+and function locally, the same as you will with a production environment.  In addition, we are
+planning to use [Consul](https://www.consul.io) for service discovery which leverages DNS. This post
+solves the DNS problem associated with this flow.  In order to completely get the
+[dev-prod](http://12factor.net/dev-prod-parity) parity, additional tools will be necessary, such as
+load balancers or reverse proxies (think nginx and watch for a follow up post to elaborate).
 
 ### The Setup
 ```sh
@@ -25,7 +29,8 @@ sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 ```
 At this point you now a have locally running dns server.  Let's go configure it so that we can browse like we are in a production environment.
 
-Now we need to tell our DNS server where to lookup hostnames our development environmnet.  I typically use the domain name with a dev top level domain.  For instance if I was working on http://www.client.com my test domain is client.dev.  This is configured by adding the name address pair as follows: 
+We need to tell our DNS server where to lookup hostnames for our development environment.  I
+typically use a domain name with a .dev top level domain.  For instance when working on http://www.client.com my test domain is client.dev.  This is configured by adding the name address pair as follows: 
 ```
 sed -i.bak '/#address=\/double-click\.net\/127\.0\.0\.1/a\
   address=/client.dev/192.168.59.103\' /usr/local/etc/dnsmasq.conf
@@ -42,16 +47,16 @@ Finally in order to get these changes into dnsmasq we need to restart the server
 sudo launchctl stop homebrew.mxcl.dnsmasq
 sudo launchctl start homebrew.mxcl.dnsmasq
 ```
-Just to make sure we are working let's test with dig
+Just to make sure we are working let's test with dig:
 ``` 
 dig this.is.totally.using.local.client.dev @127.0.0.1
 ```
-The response should be very quick and contain something similar too: 
+The response should be very quick and contain something similar to: 
 ```
 ;; ANSWER SECTION:
 this.is.totally.using.local.client.dev. 0    IN      A       192.168.59.103
 ```
-If you were configuring for pure local not boot2coker the 192.168.59.103 would
+If you were configuring for pure local not boot2docker the 192.168.59.103 would
 be 127.0.0.1.
 
 ### Resolve all the things
@@ -70,26 +75,26 @@ mkdir /etc/resolver/
 ```
 Then lets quickly make the file: 
 ```
-sudo tee /etc/resolver/bspot.dev >/dev/null <<EOF
+sudo tee /etc/resolver/coolwebsite.dev >/dev/null <<EOF
 nameserver 127.0.0.1
 EOF
 ```
-This file tells OSX to ask our local dns server for any domain in bspot.dev. We should do a quick test make sure all this works:
+This file tells OSX to ask our local dns server for any domain in coolwebsite.dev. We should do a quick test make sure all this works:
 ```
 ping -c 1 www.google.com
 ```
-This verifies we didn't break our original DNS, if you see something like: 
+This verifies we didn't break our original DNS. You're good to go if you see something like: 
 ```
 PING www.google.com (74.125.20.105): 56 data bytes
 64 bytes from 74.125.20.105: icmp_seq=0 ttl=45 time=34.782 ms
 ```
 Now we should test something new: 
 ```
-ping -c 1 this.will.go.to.my.bspot.dev 
+ping -c 1 this.will.go.to.my.coolwebsite.dev 
 ```
 Success will loook similar to: 
 ```
-PING this.will.go.to.my.bspot.dev (192.168.59.103): 56 data bytes
+PING this.will.go.to.my.coolwebsite.dev (192.168.59.103): 56 data bytes
 64 bytes from 192.168.59.103: icmp_seq=0 ttl=64 time=2.973 ms
 ```
 If you configured that for local host you should see 127.0.0.1 instead of the

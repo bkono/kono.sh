@@ -1,7 +1,7 @@
 baseurl = "http://kono.sh/"
 languageCode = "en-us"
 title = "Bryan Konowitz"
-theme = "casper_bk"
+theme = "casper"
 paginate = 5
 copyright = "All rights reserved - 2015"
 
