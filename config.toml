@@ -14,6 +14,7 @@ copyright = "All rights reserved - 2015"
   author = "bkono"
   cover = "images/cover-work_stations_espresso-50p.jpg"
   githubName = "bkono"
+  googleAnalyticsUserID = "UA-64072292-1"
   hideHUGOSupport = false
 
 [[menu.main]]
