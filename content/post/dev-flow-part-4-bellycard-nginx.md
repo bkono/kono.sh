@@ -2,8 +2,9 @@
 Categories = ["development", "docker", "consul"]
 Description = ""
 Tags = ["development", "docker", "nginx", "consul", "consul-template"]
-date = "2015-06-02T21:38:51-07:00"
+date = "2015-06-14T21:38:51-07:00"
 title = "bellycard nginx"
+draft = true
 
 +++
 

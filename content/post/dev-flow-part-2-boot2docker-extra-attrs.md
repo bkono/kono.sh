@@ -2,8 +2,9 @@
 Categories = ["development", "docker"]
 Description = ""
 Tags = ["development", "docker", "boot2docker"]
-date = "2015-06-02T21:38:35-07:00"
+date = "2015-06-14T21:38:35-07:00"
 title = "boot2docker extra attrs"
+draft = true
 
 +++
 
