@@ -26,7 +26,7 @@ As posts are completed, I'll keep the TOC below updated. Keep an eye out for fre
 the next couple weeks.
 
 1. [DNS with dnsmasq](/post/dev-flow-part-1-dnsamsq)
-1. Boot2docker Extra Attrs
 1. Consul & Registrator
+1. Boot2docker Extra Attrs
 1. Nginx & Consul-template
 

@@ -3,7 +3,7 @@ Categories = ["development", "docker", "consul"]
 Description = ""
 Tags = ["development", "docker", "consul", "registrator"]
 date = "2015-06-14T21:38:43-07:00"
-title = "consul registrator"
+title = "Prodlike dev flow part 2 - consul & registrator"
 draft = true
 
 +++

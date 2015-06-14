@@ -3,7 +3,7 @@ Categories = ["development", "docker"]
 Description = ""
 Tags = ["development", "docker", "boot2docker"]
 date = "2015-06-14T21:38:35-07:00"
-title = "boot2docker extra attrs"
+title = "Prodlike dev flow part 3 - boot2docker extra attrs"
 draft = true
 
 +++
