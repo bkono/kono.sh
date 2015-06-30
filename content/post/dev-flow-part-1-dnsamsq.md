@@ -40,7 +40,7 @@ The whitespace in this command for OSX must match exactly or you will discover t
 This setup is preparing us to pair with [Docker Compose](https://docs.docker.com/compose/). If you are not going to use Docker Compose, then you probably just want to use the loopback address as below:
 ```
 sed -i.bak '/#address=\/double-click\.net\/127\.0\.0\.1/a\
-  address=/client.dev/127.0.0.1\' /usr/local/etc/dnsmasq.conf
+  address=/client.dev/127.0.0.1' /usr/local/etc/dnsmasq.conf
 ```
 Finally in order to get these changes into dnsmasq we need to restart the server with: 
 ``` 
@@ -99,3 +99,5 @@ PING this.will.go.to.my.coolwebsite.dev (192.168.59.103): 56 data bytes
 ```
 If you configured that for local host you should see 127.0.0.1 instead of the
 192.
+
+Finally if you are super lazy and trust me 100 % you can use a bash script to automate this similar to the one you see [here](https://gist.github.com/moofish32/1594c43bdbde2e714ff9#file-dnsmasq_docker-sh)
