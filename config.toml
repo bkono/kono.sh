@@ -26,11 +26,14 @@ copyright = "All rights reserved - 2015"
 [[menu.main]]
   name = "Github repos"
   weight = 100
-  pre = "<h4>Follow me</h4>"
   url = "https://github.com/bkono"
 
 [[menu.main]]
   name = "Email"
   weight = 109
-  pre = "<h4>Contact me</h4>"
   url = "mailto:bryan@kono.sh"
+
+[[menu.main]]
+  name = "Resume"
+  weight = 110
+  url = "http://kono.sh/resume.pdf"
