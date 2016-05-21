@@ -15,7 +15,7 @@ Several years ago I was trying to come up with a decent name to use when taking 
 contracts. Rather than just picking any old arbitrary name, I wanted something that really hit the
 point of what it is I do. Putting the idea of solving a real problem first, and the technology
 second pretty much nails it; hence Solved by Code. Whatever the problem, simple or complex,
-technology needs be a supporting role. While I enjoy coming up with impressive feats of engineering
+technology needs to be a supporting role. While I enjoy coming up with impressive feats of engineering
 just as much as the next programming geek, at the end of the day the real satisfaction is in
 successfully delivering a solution. After all, how can you solve the world's problems if you're never
 getting your projects out into the wild?
