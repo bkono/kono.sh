@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/bkono
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://kono.sh
+  * I am bkono (https://keybase.io/bkono) on keybase.
+  * I have a public key ASASckZ-1gUvHCVp-CBHrt-Ze8KDRkVgGp2wQmrYPF4Zlwo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120dd43b43cd570348bb24d13cfed0d3fce8117f7736da1ba30700140d8a91b95be0a",
+            "host": "keybase.io",
+            "kid": "01201272467ed6052f1c2569f82047aedf997bc2834645601a9db0426ad83c5e19970a",
+            "uid": "0b5e8947a1ccb1e777578642002b7f19",
+            "username": "bkono"
+        },
+        "service": {
+            "hostname": "kono.sh",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.23"
+    },
+    "ctime": 1496184900,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1496184877,
+        "hash": "d7f27d80b3943a3b77aa9a4291b28649ac1975cfbf08cbc1d9f19e22a8e5c39ac92b0d63777e89f9a4a2c540b0f247dd9b26695b761d7d66c002b986f25c7dfb",
+        "seqno": 1130230
+    },
+    "prev": "0e99d26d818e1113db3bdf2eac95c04d99acd8f8a206472048e8edb9e5a71923",
+    "seqno": 7,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgEnJGftYFLxwlafggR67fmXvCg0ZFYBqdsEJq2DxeGZcKp3BheWxvYWTFAux7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwZGQ0M2I0M2NkNTcwMzQ4YmIyNGQxM2NmZWQwZDNmY2U4MTE3Zjc3MzZkYTFiYTMwNzAwMTQwZDhhOTFiOTViZTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMTI3MjQ2N2VkNjA1MmYxYzI1NjlmODIwNDdhZWRmOTk3YmMyODM0NjQ1NjAxYTlkYjA0MjZhZDgzYzVlMTk5NzBhIiwidWlkIjoiMGI1ZTg5NDdhMWNjYjFlNzc3NTc4NjQyMDAyYjdmMTkiLCJ1c2VybmFtZSI6ImJrb25vIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJrb25vLnNoIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4yMyJ9LCJjdGltZSI6MTQ5NjE4NDkwMCwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNDk2MTg0ODc3LCJoYXNoIjoiZDdmMjdkODBiMzk0M2EzYjc3YWE5YTQyOTFiMjg2NDlhYzE5NzVjZmJmMDhjYmMxZDlmMTllMjJhOGU1YzM5YWM5MmIwZDYzNzc3ZTg5ZjlhNGEyYzU0MGIwZjI0N2RkOWIyNjY5NWI3NjFkN2Q2NmMwMDJiOTg2ZjI1YzdkZmIiLCJzZXFubyI6MTEzMDIzMH0sInByZXYiOiIwZTk5ZDI2ZDgxOGUxMTEzZGIzYmRmMmVhYzk1YzA0ZDk5YWNkOGY4YTIwNjQ3MjA0OGU4ZWRiOWU1YTcxOTIzIiwic2Vxbm8iOjcsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RAZ8Eg2zgtwqv3HqS75j4FEukt4Dzz5QoBiHjeQTC9GlaNxYSMPO1hloC6FTtS4p0OPxHm3wHahFAhFLHWsdyxCKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKpWASAwO9jjhVAN6TjFU58iC9a/fBHOnwJ1fo0xB3sao3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/bkono
+
+==================================================================

@@ -19,7 +19,7 @@ copyright = "All rights reserved - 2015"
 
 [[menu.main]]
   name = "Blog"
-  weight = -120
+  weight = 1200
   identifier = "blog"
   url = "/"
 
@@ -30,10 +30,15 @@ copyright = "All rights reserved - 2015"
 
 [[menu.main]]
   name = "Email"
-  weight = 109
+  weight = 99
   url = "mailto:bryan@kono.sh"
 
 [[menu.main]]
   name = "Resume"
-  weight = 110
+  weight = 98
   url = "http://kono.sh/resume.pdf"
+
+[[menu.main]]
+  name = "Keybase"
+  weight = 97
+  url = "http://kono.sh/keybase.txt"
