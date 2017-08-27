@@ -36,7 +36,7 @@ copyright = "All rights reserved - 2015"
 [[menu.main]]
   name = "Resume"
   weight = 98
-  url = "http://kono.sh/resume.pdf"
+  url = "http://kono.sh/resume.html"
 
 [[menu.main]]
   name = "Keybase"
