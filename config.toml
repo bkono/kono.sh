@@ -1,7 +1,7 @@
 baseurl = "http://kono.sh/"
 languageCode = "en-us"
 title = "Bryan Konowitz"
-theme = "casper"
+theme = "cactus"
 paginate = 5
 copyright = "All rights reserved - 2015"
 PygmentsCodeFences = true
@@ -11,6 +11,7 @@ pygmentsstyle = "paraiso-dark"
    category = "categories"
    tag = "tags"
 [params]
+  name = "Bryan Konowitz"
   description = "Solved by Code"
   author = "bkono"
   cover = "images/cover-work_stations_espresso-50p.jpg"
