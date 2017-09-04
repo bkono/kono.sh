@@ -18,8 +18,10 @@ solves the DNS problem associated with this flow.  In order to completely get th
 [dev-prod](http://12factor.net/dev-prod-parity) parity, additional tools will be necessary, such as
 load balancers or reverse proxies (think nginx and watch for a follow up post to elaborate).
 
+
 ### The Setup
-```sh
+
+```
 brew up
 brew install dnsmasq
 cp /usr/local/opt/dnsmasq/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
