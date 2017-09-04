@@ -1,46 +1,84 @@
+# Site settings
 baseurl = "http://kono.sh/"
 languageCode = "en-us"
-title = "Bryan Konowitz"
+title = "Solved by Code"
 theme = "cactus"
-paginate = 5
-copyright = "All rights reserved - 2015"
-PygmentsCodeFences = true
-pygmentsstyle = "paraiso-dark"
+# Enter your tracking code to enable Google Analytics
+googleAnalytics = ""
+# Disable comments by leaving disqusShortname empty
+disqusShortname = ""
 
-[indexes]
-   category = "categories"
-   tag = "tags"
 [params]
-  name = "Bryan Konowitz"
-  description = "Solved by Code"
-  author = "bkono"
-  cover = "images/cover-work_stations_espresso-50p.jpg"
-  githubName = "bkono"
-  googleAnalyticsUserID = "UA-64072292-1"
-  hideHUGOSupport = false
+	name = "Bryan Konowitz"
+	description = "Solved by Code"
+	bio = "Geeking out on tech, dev, ops, and whatever randomness suits the day."
+	# Enter optionally your twitter account
+	# twitter = "bkono"
+	enableRSS = true
+
+	# Integrate Javascript files or stylesheets by adding the url to the external assets or by
+	# linking local files with their path relative to the static folder, e.g. "css/styles.css"
+	customCSS = []
+	customJS  = []
+
+	# The variables below are optionally too and can be used to
+	# translate or customize each string of the theme.
+
+	# Navigation links
+	home = ""
+	subscribe = ""
+	# Pagination links
+	olderPosts = ""
+	newerPosts = ""
+	readMore = ""
+	copyright = ""
+	# Sharing options and author information in posts
+	aboutAuthor = "Total techie. Proud geek dad."
+	tweet = ""
+	share = ""
+	# 404 page
+	title404 = ""
+	subtitle404 = ""
+
+	# Choose a font for the social icons in the footer. Either "mono-social" or "font-awesome"
+	iconFont = "mono-social"
+    # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
+    socialIconStyle = "circle"
+
+# Add additional social link entries underneath
+[social]
+    # twitter  = "https://www.twitter.com/"
+    # facebook = "https://www.facebook.com/"
+    github   = "https://github.com/bkono"
+    # dribble  = "https://www.dribbble.com/"
 
 [[menu.main]]
-  name = "Blog"
-  weight = 1200
-  identifier = "blog"
-  url = "/"
-
-[[menu.main]]
-  name = "Github repos"
+  name = "About"
   weight = 100
+  url = "/about"
+
+[[menu.main]]
+  name = "Github"
+  weight = 95
   url = "https://github.com/bkono"
 
 [[menu.main]]
+  name = "Medium"
+  weight = 90
+  url = "https://medium.com/@bkono"
+
+[[menu.main]]
   name = "Email"
-  weight = 99
+  weight = 90
   url = "mailto:bryan@kono.sh"
 
 [[menu.main]]
   name = "Resume"
-  weight = 98
+  weight = 85
   url = "/resume.html"
 
 [[menu.main]]
   name = "Keybase"
-  weight = 97
+  weight = 80
   url = "/keybase.txt"
+
