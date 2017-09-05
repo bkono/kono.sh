@@ -41,15 +41,19 @@ disqusShortname = ""
 	subtitle404 = ""
 
 	# Choose a font for the social icons in the footer. Either "mono-social" or "font-awesome"
-	iconFont = "mono-social"
+	iconFont = "font-awesome"
     # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
     socialIconStyle = "circle"
 
 # Add additional social link entries underneath
 [social]
+    envelope = "mailto:bryan@kono.sh"
+    github   = "https://github.com/bkono"
+    linkedin = "https://linkedin.com/in/bkono"
+    medium   = "https://medium.com/@bkono"
     # twitter  = "https://www.twitter.com/"
     # facebook = "https://www.facebook.com/"
-    github   = "https://github.com/bkono"
+    # keybase = "/keybase.txt"
     # dribble  = "https://www.dribbble.com/"
 
 [[menu.main]]
@@ -57,20 +61,15 @@ disqusShortname = ""
   weight = 100
   url = "/about"
 
-[[menu.main]]
-  name = "Github"
-  weight = 95
-  url = "https://github.com/bkono"
+# [[menu.main]]
+#   name = "Github"
+#   weight = 95
+#   url = "https://github.com/bkono"
 
-[[menu.main]]
-  name = "Medium"
-  weight = 90
-  url = "https://medium.com/@bkono"
-
-[[menu.main]]
-  name = "Email"
-  weight = 90
-  url = "mailto:bryan@kono.sh"
+# [[menu.main]]
+#   name = "Email"
+#   weight = 90
+#   url = "mailto:bryan@kono.sh"
 
 [[menu.main]]
   name = "Resume"
