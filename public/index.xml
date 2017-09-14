@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Solved by Code</title>
+    <link>https://kono.sh/</link>
+    <description>Recent content on Solved by Code</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Jun 2015 21:38:15 -0700</lastBuildDate>
+    
+	<atom:link href="https://kono.sh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A prodlike dev flow part 1 - dnsmasq </title>
+      <link>https://kono.sh/posts/dev-flow-part-1-dnsamsq/</link>
+      <pubDate>Thu, 04 Jun 2015 21:38:15 -0700</pubDate>
+      
+      <guid>https://kono.sh/posts/dev-flow-part-1-dnsamsq/</guid>
+      <description>DNS for development just like your production setup dnsmasq is one part of the equation to making our development environments behave like a production environment. Instead of coding in URLs like http://localhost:8080/ we want to provide http://testing.coolwebsite.dev/. This way we can have websites hosted on subdomains where we browse and function locally, the same as you will with a production environment. In addition, we are planning to use Consul for service discovery which leverages DNS.</description>
+    </item>
+    
+    <item>
+      <title>A prodlike dev flow part 0 - intro</title>
+      <link>https://kono.sh/posts/dev-flow-part-0-intro/</link>
+      <pubDate>Tue, 02 Jun 2015 22:33:47 -0700</pubDate>
+      
+      <guid>https://kono.sh/posts/dev-flow-part-0-intro/</guid>
+      <description>Bringing docker into the picture for deployments to production has a number of great benefits. A key one of those is the fact that we can work with the same container locally as we will during a deployment to prod. In a distributed system composed of multiple services, this benefit grows exponentially if we invest a little time up front to integrate system testing on our local development environments. Being able to snag down all of the current containers deployed to prod is a great first step, but you&amp;rsquo;ll quickly find a few gaps remain.</description>
+    </item>
+    
+  </channel>
+</rss>

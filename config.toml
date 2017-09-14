@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "http://kono.sh/"
+baseurl = "https://kono.sh/"
 languageCode = "en-us"
 title = "Solved by Code"
 theme = "cactus"

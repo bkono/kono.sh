@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Bryan Konowitz">
+<meta name="description" content="Solved by Code">
+<meta name="generator" content="Hugo 0.26" />
+<title>A prodlike dev flow part 1 - dnsmasq </title>
+<link rel="shortcut icon" href="https://kono.sh/images/favicon.ico">
+<link rel="stylesheet" href="https://kono.sh/css/style.css">
+<link rel="stylesheet" href="https://kono.sh/css/highlight.css">
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+
+
+<link href="https://kono.sh/index.xml" rel="alternate" type="application/rss+xml" title="Solved by Code" />
+
+
+<meta property="og:title" content="A prodlike dev flow part 1 - dnsmasq " />
+<meta property="og:description" content="DNS for development just like your production setup dnsmasq is one part of the equation to making our development environments behave like a production environment. Instead of coding in URLs like http://localhost:8080/ we want to provide http://testing.coolwebsite.dev/. This way we can have websites hosted on subdomains where we browse and function locally, the same as you will with a production environment. In addition, we are planning to use Consul for service discovery which leverages DNS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kono.sh/posts/dev-flow-part-1-dnsamsq/" />
+
+
+
+<meta property="article:published_time" content="2015-06-04T21:38:15-07:00"/>
+<meta property="article:modified_time" content="2015-06-04T21:38:15-07:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="A prodlike dev flow part 1 - dnsmasq ">
+<meta itemprop="description" content="DNS for development just like your production setup dnsmasq is one part of the equation to making our development environments behave like a production environment. Instead of coding in URLs like http://localhost:8080/ we want to provide http://testing.coolwebsite.dev/. This way we can have websites hosted on subdomains where we browse and function locally, the same as you will with a production environment. In addition, we are planning to use Consul for service discovery which leverages DNS.">
+
+
+<meta itemprop="dateModified" content="2015-06-04T21:38:15-07:00" />
+<meta itemprop="wordCount" content="600">
+
+
+
+<meta itemprop="keywords" content="development,devops,docker,dnsmasq," />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="A prodlike dev flow part 1 - dnsmasq "/>
+<meta name="twitter:description" content="DNS for development just like your production setup dnsmasq is one part of the equation to making our development environments behave like a production environment. Instead of coding in URLs like http://localhost:8080/ we want to provide http://testing.coolwebsite.dev/. This way we can have websites hosted on subdomains where we browse and function locally, the same as you will with a production environment. In addition, we are planning to use Consul for service discovery which leverages DNS."/>
+
+
+    </head>
+<body>
+    <nav class="main-nav">
+	
+		<a href='https://kono.sh/'> <span class="arrow">←</span>Home</a>
+	
+
+	
+ 		<a href='/keybase.txt'>Keybase</a>
+  	
+ 		<a href='/resume.html'>Resume</a>
+  	
+ 		<a href='/about'>About</a>
+  	
+
+	
+		<a class="cta" href="https://kono.sh/index.xml">Subscribe</a>
+	
+</nav>
+
+    <section id="wrapper">
+        
+        
+<article class="post">
+    <header>
+        <h1>A prodlike dev flow part 1 - dnsmasq </h1>
+        <h2 class="subtitle"></h2>
+        <h2 class="headline">
+        June 4, 2015
+        <br>
+        
+        
+            
+                <a href="https://kono.sh/tags/development">development</a>
+            
+                <a href="https://kono.sh/tags/devops">devops</a>
+            
+                <a href="https://kono.sh/tags/docker">docker</a>
+            
+                <a href="https://kono.sh/tags/dnsmasq">dnsmasq</a>
+            
+        
+        
+        </h2>
+    </header>
+    <section id="post-body">
+        
+
+<h3 id="dns-for-development-just-like-your-production-setup">DNS for development just like your production setup</h3>
+
+<p>dnsmasq is one part of the equation to making our development environments behave like a production
+environment.  Instead of coding in URLs like <a href="http://localhost:8080/">http://localhost:8080/</a> we want to provide
+<a href="http://testing.coolwebsite.dev/">http://testing.coolwebsite.dev/</a>.  This way we can have websites hosted on subdomains where we browse
+and function locally, the same as you will with a production environment.  In addition, we are
+planning to use <a href="https://www.consul.io">Consul</a> for service discovery which leverages DNS. This post
+solves the DNS problem associated with this flow.  In order to completely get the
+<a href="http://12factor.net/dev-prod-parity">dev-prod</a> parity, additional tools will be necessary, such as
+load balancers or reverse proxies (think nginx and watch for a follow up post to elaborate).</p>
+
+<h3 id="the-setup">The Setup</h3>
+
+<pre><code>brew up
+brew install dnsmasq
+cp /usr/local/opt/dnsmasq/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
+sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
+sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+</code></pre>
+
+<p>At this point you now a have locally running dns server.  Let&rsquo;s go configure it so that we can browse like we are in a production environment.</p>
+
+<p>We need to tell our DNS server where to lookup hostnames for our development environment.  I
+typically use a domain name with a .dev top level domain.  For instance when working on <a href="http://www.client.com">http://www.client.com</a> my test domain is client.dev.  This is configured by adding the name address pair as follows:</p>
+
+<pre><code>sed -i.bak '/#address=\/double-click\.net\/127\.0\.0\.1/a\
+  address=/client.dev/192.168.59.103\' /usr/local/etc/dnsmasq.conf
+</code></pre>
+
+<p>The whitespace in this command for OSX must match exactly or you will discover the GNU vs BSD sed differences. As an alternative you can just open /usr/local/etc/dnsmasq.conf in your favorite editor and append this line.</p>
+
+<p>This setup is preparing us to pair with <a href="https://docs.docker.com/compose/">Docker Compose</a>. If you are not going to use Docker Compose, then you probably just want to use the loopback address as below:</p>
+
+<pre><code>sed -i.bak '/#address=\/double-click\.net\/127\.0\.0\.1/a\
+  address=/client.dev/127.0.0.1' /usr/local/etc/dnsmasq.conf
+</code></pre>
+
+<p>Finally in order to get these changes into dnsmasq we need to restart the server with:</p>
+
+<pre><code>sudo launchctl stop homebrew.mxcl.dnsmasq
+sudo launchctl start homebrew.mxcl.dnsmasq
+</code></pre>
+
+<p>Just to make sure we are working let&rsquo;s test with dig:</p>
+
+<pre><code>dig this.is.totally.using.local.client.dev @127.0.0.1
+</code></pre>
+
+<p>The response should be very quick and contain something similar to:</p>
+
+<pre><code>;; ANSWER SECTION:
+this.is.totally.using.local.client.dev. 0    IN      A       192.168.59.103
+</code></pre>
+
+<p>If you were configuring for pure local not boot2docker the 192.168.59.103 would
+be 127.0.0.1.</p>
+
+<h3 id="resolve-all-the-things">Resolve all the things</h3>
+
+<p>Now that we have a DNS server running and configured locally, we need to tell OSX how to use dnsmasq. There are a couple of options, but we are going to keep this simple and use resolvers to only affect the client.dev domain.</p>
+
+<p>For more information on what we are about to do see the resolver(5) manual page:</p>
+
+<pre><code>man 5 resolver
+</code></pre>
+
+<p>We need a new resolver file, but first make sure you have an /etc/resolver/
+directory, if not make one with:</p>
+
+<pre><code>mkdir /etc/resolver/
+</code></pre>
+
+<p>Then lets quickly make the file:</p>
+
+<pre><code>sudo tee /etc/resolver/coolwebsite.dev &gt;/dev/null &lt;&lt;EOF
+nameserver 127.0.0.1
+EOF
+</code></pre>
+
+<p>This file tells OSX to ask our local dns server for any domain in coolwebsite.dev. We should do a quick test make sure all this works:</p>
+
+<pre><code>ping -c 1 www.google.com
+</code></pre>
+
+<p>This verifies we didn&rsquo;t break our original DNS. You&rsquo;re good to go if you see something like:</p>
+
+<pre><code>PING www.google.com (74.125.20.105): 56 data bytes
+64 bytes from 74.125.20.105: icmp_seq=0 ttl=45 time=34.782 ms
+</code></pre>
+
+<p>Now we should test something new:</p>
+
+<pre><code>ping -c 1 this.will.go.to.my.coolwebsite.dev 
+</code></pre>
+
+<p>Success will look similar to:</p>
+
+<pre><code>PING this.will.go.to.my.coolwebsite.dev (192.168.59.103): 56 data bytes
+64 bytes from 192.168.59.103: icmp_seq=0 ttl=64 time=2.973 ms
+</code></pre>
+
+<p>If you configured that for local host you should see 127.0.0.1 instead of the
+192.</p>
+
+<p>Finally if you are super lazy and trust me 100 % you can use a bash script to automate this similar to the one you see <a href="https://gist.github.com/moofish32/1594c43bdbde2e714ff9#file-dnsmasq_docker-sh">here</a></p>
+
+<hr />
+
+<p><em>Guest posted by: <a href="https://github.com/moofish32">moofish32</a></em></p>
+
+    </section>
+</article>
+
+<footer id="post-meta" class="clearfix">
+    
+    <img class="avatar" src="https://kono.sh/images/avatar.png">
+    <div>
+        <span class="dark">Bryan Konowitz</span>
+        <span>Total techie. Proud geek dad.</span>
+    </div>
+    
+    <section id="sharing">
+        <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fkono.sh%2fposts%2fdev-flow-part-1-dnsamsq%2f - A%20prodlike%20dev%20flow%20part%201%20-%20dnsmasq%20 "><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+    </section>
+</footer>
+
+
+
+<ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+
+    
+    
+    
+        <li>
+            <a href="/posts/dev-flow-part-0-intro/">A prodlike dev flow part 0 - intro<aside class="dates">Jun 2 2015</aside></a>
+        </li>
+    
+</ul>
+
+
+
+        <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    <a class="symbol" href="mailto:bryan@kono.sh">
+        <i class="fa fa-envelope"></i>
+    </a>&nbsp;
+    
+    <a class="symbol" href="https://github.com/bkono">
+        <i class="fa fa-github"></i>
+    </a>&nbsp;
+    
+    <a class="symbol" href="https://linkedin.com/in/bkono">
+        <i class="fa fa-linkedin"></i>
+    </a>&nbsp;
+    
+    <a class="symbol" href="https://medium.com/@bkono">
+        <i class="fa fa-medium"></i>
+    </a>&nbsp;
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2017 Bryan Konowitz
+    
+    </p>
+</footer>
+
+    </section>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://kono.sh/js/main.js"></script>
+<script src="https://kono.sh/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+</body>
+</html>
